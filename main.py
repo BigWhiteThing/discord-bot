@@ -1,17 +1,16 @@
 import discord
-from discord.ext import commands
 import os
 
-TOKEN = os.getenv("TOKEN")  # Token will come from Railway's variables
+from discord.ext import commands
 
-bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
+bot = commands.Bot(command_prefix="!")
 
 @bot.event
 async def on_ready():
-    print(f"✅ Logged in as {bot.user}")
+    print(f'Logged in as {bot.user}')
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send("pong 🏓")
+    await ctx.send("Pong!")
 
-bot.run(TOKEN)
+bot.run(os.getenv("DISCORD_TOKEN"))
